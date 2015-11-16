@@ -1,32 +1,51 @@
 public class CellList{
+	private CellNode head;
+	private int size;
 	
+	}
+	//default constructor of CellList
+	public CellList(){
+		head = null;
+		size = 0;
+	}
+
+	//copy constructor of CellList. Unsure about where head is supposed to point.
+	public CellList(CellList cellList){
+		this.head = cellList.head;
+		this.size = cellList.size;
+	}
+
+	public void addToStart(CellPhone cellPhone){
+		CellNode newnode = new CellNode(cellPhone, node);
+	}
+
 	//begin inner class
 	public class CellNode{
 		private CellPhone phone;
-		private CellNode node;
+		private CellNode link;
 
 		//default constructor
 		public CellNode(){
 			this.phone = null;
-			this.node = null;
+			this.link = null;
 		}
 
 		//parametrised constructor
-		public CellNode(CellPhone phone, CellNode node){
+		public CellNode(CellPhone phone, CellNode linkValue){
 			this.phone = phone.clone(phone.getSerial());
-			this.phone = node;
+			this.link = linkValue;
 		}
 
 		//copy constructor
-		public CellNode(CellNode otherNode){
-			this.phone = otherNode.getPhone().clone(otherPhone.getPhone().getSerial());
-			this.node = otherNode.getNode(); 
+		public CellNode(CellNode othernode){
+			this.phone = othernode.getPhone().clone(otherPhone.getPhone().getSerial());
+			this.link = othernode.getLink(); 
 		}
 
 		//clone method
 		public CellNode clone(){
-			CellNode clonedNode = new CellNode(this.getPhone(), this.getNode());
-			return clonedNode;
+			CellNode clonednode = new CellNode(this.getPhone(), this.getLink());
+			return clonednode;
 		}
 
 		//accessors and mutators
@@ -37,8 +56,8 @@ public class CellList{
 			return this.phone;
 		}
 
-		public CellNode getNode(){
-			return this.node;
+		public CellNode getLink(){
+			return this.link;
 		}
 
 		//again should the parameter set the pointer or should it create
@@ -47,8 +66,7 @@ public class CellList{
 			this.phone = phone;
 		}
 
-		public void setNode(CellNode node){
-			this.node = node;
-		}
-	}
+		public void setLink(CellNode link){
+			this.link = link;
+		}	
 }
