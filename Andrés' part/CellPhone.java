@@ -36,7 +36,7 @@ public class CellPhone{
 
 	//toString method
 	public String toString(){
-		return "Serial number: "+this.serialNum+"\nBrand: "+this.brand+"\nYear: "+this.year+"\nPrice: $"+this.price;
+		return "Serial number: "+this.serialNum+", Brand: "+this.brand+", Year: "+this.year+", Price: $"+this.price;
 	}
 
 	//equals method
