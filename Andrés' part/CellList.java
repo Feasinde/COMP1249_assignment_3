@@ -63,7 +63,7 @@ public class CellList{
 		return false;
 	}
 
-	//find takes a CellPhone serial number and returns the pointer
+	//find() takes a CellPhone serial number and returns the pointer
 	//of the node that matches it. Returns null if the serial is not
 	//found
 	public CellNode find(long serial){
@@ -79,5 +79,19 @@ public class CellList{
 		return null;
 	}
 
+	//contains() takes a CellPhone serial number and returns true
+	//if the number matches a CellPhone object that belongs in a
+	//CellNode
+	public boolean contains(long serial){
+		return find(serial) != null;
+	}
 
+	//showContents() outputs the contents of the list
+	public void showContents(){
+		CellNode position = head;
+		while (position != null){
+			System.out.println("["+position.phone+"] ---> ");
+			position = position.link;
+		}
+	}
 }
