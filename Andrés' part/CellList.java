@@ -1,4 +1,4 @@
-public class CellList{
+public class CellList implements PubliclyCloneable{
 	
 	/////////////////////
 	//BEGIN INNER CLASS//
@@ -35,7 +35,7 @@ public class CellList{
 	//TO DO: copy constructor of CellList
 
 	//addToStart() adds a CellPhone object at the beginning of the list
-	public void addToStart(CellPhone cellPhone){
+	public void addToStart(CellPhone cellPhone){	
 		head = new CellNode(cellPhone, head);
 	}
 
@@ -90,8 +90,44 @@ public class CellList{
 	public void showContents(){
 		CellNode position = head;
 		while (position != null){
-			System.out.println("["+position.phone+"] ---> ");
+			System.out.print("["+position.phone+"] ---> ");
 			position = position.link;
 		}
+	}
+
+	//clone() method returns a deep copy of the linked list
+	public CellList clone(){
+		try{
+			CellList copy = (CellList)super.clone();
+			if (head == null){
+				copy.head = null;
+			}
+			else{
+				copy.head = copyOf(head);
+			}
+			return copy;
+		}
+		catch(CloneNotSupportedException e){
+			return null;
+		}
+	}
+
+	//shameless rip-off of the method described in the book.
+	//Returns a deep copy of the node.
+	public CellNode copyOf(CellNode otherHead){
+		CellNode position = otherHead; 	//moves down other's list
+		CellNode newHead;				//will point to the head of the copy list
+		CellNode end = null;			//positioned at the end of the growing list
+
+		//Create the first node
+		newHead = new CellNode((position.phone).clone(), null);
+		while (position != null){
+			//copy the node at position to the end of the new list
+			end.link = new CellNode((position.phone).clone(), null);
+			end = end.link;
+			position = position.link;
+		}
+
+		return newHead;
 	}
 }

@@ -11,7 +11,7 @@ public class CellListUtilisation{
 		CellPhone phone4 = new CellPhone(45678901, "Apple", 2012, 799.99);
 
 		CellList list1 = new CellList();
-		CellList list2 = new CellList();
+		CellList list2 = null;
 
 		System.out.println(list1);
 
@@ -20,5 +20,8 @@ public class CellListUtilisation{
 		list1.addToStart(phone3);
 		list1.addToStart(phone4);
 		list1.showContents();
-	}
+		System.out.println("Is the serial number 12342678 in the list? " + list1.contains(12342678));
+		System.out.println("The phone with the serial 23456789 is here: "+ list1.find(23456789));
+		list2 = list1.clone();
+	} 
 }

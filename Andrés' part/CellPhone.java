@@ -1,4 +1,4 @@
-public class CellPhone{
+public class CellPhone implements Cloneable{
 	private long serialNum;
 	private String brand;
 	private int year;
