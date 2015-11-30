@@ -1,8 +1,10 @@
+import java.util.NoSuchElementException;
+
 public class CellList{
 	
-	/////////////////////
-	//BEGIN INNER CLASS//
-	/////////////////////
+	//////////////////////////
+	//BEGIN INNER NODE CLASS//
+	//////////////////////////
 	public class CellNode{
 		private CellPhone phone;
 		private CellNode link;
@@ -17,12 +19,63 @@ public class CellList{
 			this.link = link;
 		}
 
-		//TO DO: copy constructor and clone methods
+		//Assignment requires the following two methods. Not really sure what's the point.
+		public CellNode(CellNode cellNode){
+			phone = cellNode.phone.clone(cellNode.phone.getSerialNum());
+			link = cellNode.link;
+		}
+
+		public CellNode clone(){
+			return new CellNode(this.phone.clone(this.phone.getSerialNum()), this.link);
+		}
+
 	}
-	///////////////////
-	//END INNER CLASS//
-	///////////////////
-	
+	////////////////////////
+	//END INNER NODE CLASS//
+	////////////////////////
+
+	////////////////////////
+	//BEGIN ITERATOR CLASS//
+	////////////////////////
+	public class CellListIterator{
+		private CellNode position;
+		private CellNode previous;
+
+		public CellListIterator(){
+			position = head;
+			previous = null;
+		}
+
+		public void restart(){
+			position = head;
+			previous = null;
+		}
+
+		public CellPhone next(){
+			if (!hasNext()){
+				throw new NoSuchElementException();
+			}
+			CellPhone toReturn = position.phone;
+			previous = position;
+			position = position.link;
+			return toReturn;
+		}
+
+		public boolean hasNext(){
+			return (position != null);
+		}
+
+		public CellPhone peek(){
+			if (!hasNext()){
+				throw new IllegalStateException();
+			}
+			return position.phone;
+		}
+	}
+	//////////////////////
+	//END ITERATOR CLASS//
+	//////////////////////
+
 	private CellNode head;
 	private int size;
 
