@@ -29,15 +29,9 @@ public class CellPhone implements Cloneable{
 	}
 
 	//clone method
-	public Object clone(long serialNum){
-		try{
-			CellPhone clonedPhone = (CellPhone)super.clone();
-			clonedPhone.setSerialNum(serialNum);
-			return clonedPhone;
-		}
-		catch(CloneNotSupportedException e){
-			return null;
-		}
+	public CellPhone clone(long serialNum){
+		CellPhone copy = new CellPhone(serialNum, this.getBrand(), this.getYear(), this.getPrice());
+		return copy;
 
 	}
 

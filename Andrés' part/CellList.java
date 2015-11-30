@@ -1,4 +1,4 @@
-public class CellList implements PubliclyCloneable{
+public class CellList{
 	
 	/////////////////////
 	//BEGIN INNER CLASS//
@@ -95,39 +95,5 @@ public class CellList implements PubliclyCloneable{
 		}
 	}
 
-	//clone() method returns a deep copy of the linked list
-	public CellList clone(){
-		try{
-			CellList copy = (CellList)super.clone();
-			if (head == null){
-				copy.head = null;
-			}
-			else{
-				copy.head = copyOf(head);
-			}
-			return copy;
-		}
-		catch(CloneNotSupportedException e){
-			return null;
-		}
-	}
-
-	//shameless rip-off of the method described in the book.
-	//Returns a deep copy of the node.
-	public CellNode copyOf(CellNode otherHead){
-		CellNode position = otherHead; 	//moves down other's list
-		CellNode newHead;				//will point to the head of the copy list
-		CellNode end = null;			//positioned at the end of the growing list
-
-		//Create the first node
-		newHead = new CellNode((position.phone).clone(), null);
-		while (position != null){
-			//copy the node at position to the end of the new list
-			end.link = new CellNode((position.phone).clone(), null);
-			end = end.link;
-			position = position.link;
-		}
-
-		return newHead;
-	}
+	//TO DO: clone() method
 }
