@@ -8,12 +8,13 @@ public class CellList{
 	public class CellNode{
 		private CellPhone phone;
 		private CellNode link;
-
+		//default constructor
 		public CellNode(){
 			phone = null;
 			link = null;
 		}
 
+		//parametrised constructor
 		public CellNode(CellPhone phone, CellNode link){
 			this.phone = phone;
 			this.link = link;
@@ -21,12 +22,28 @@ public class CellList{
 
 		//Assignment requires the following two methods. Not really sure what's the point.
 		public CellNode(CellNode cellNode){
-			phone = cellNode.phone.clone(cellNode.phone.getSerialNum());
+			phone = cellNode.phone.clone();
 			link = cellNode.link;
 		}
 
 		public CellNode clone(){
-			return new CellNode(this.phone.clone(this.phone.getSerialNum()), this.link);
+			return new CellNode(this);
+		}
+
+		public void setCellPhone(CellPhone cellPhone){
+			phone = cellPhone;
+		}
+
+		public void setLink(CellNode link){
+			this.link = link;
+		}
+
+		public CellPhone getCellPhone(){
+			return phone;
+		}
+
+		public CellNode getLink(){
+			return link;
 		}
 
 	}
@@ -80,12 +97,51 @@ public class CellList{
 	private int size;
 
 	//default constructor
-
 	public CellList(){
 		head = null;
 	}
 
-	//TO DO: copy constructor of CellList
+	//copy constructor of CellList. This is an adaptation of the
+	//code written by Prof Aiman Hanna (C) 1993 - 2014
+	//http://aimanhanna.com/concordia/comp249/LinkedList5.java
+	public CellList(CellList cellList){
+		if (cellList == null) throw new NullPointerException();
+		if (cellList.head == null){
+			head = null;
+		}
+		else{
+			head = null;
+
+			//temporary CellNode pointers that will reference the 
+			//contents of each other as we populate the list
+			CellNode temp1, temp2, temp3;
+
+			//first pointer references the first node on the original
+			//list
+			temp1 = cellList.head;
+
+			//second pointer will reference the first object on the
+			//copied list only once
+			temp2 = null;
+
+			//third pointer will reference the most recently copied
+			//node on the copied list
+			temp3 = null;
+
+			while(temp1 != null){
+				if (temp2 == null){				//only for the first node
+					temp2 = new CellNode(temp1);
+					head = temp2;
+				}
+				else{
+					temp3 = new CellNode(temp1);
+					temp2.setLink(temp3);
+					temp2 = temp3;
+				}
+				temp1 = temp1.getLink();
+			}
+		}
+	}
 
 	//addToStart() adds a CellPhone object at the beginning of the list
 	public void addToStart(CellPhone cellPhone){	

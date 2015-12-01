@@ -22,7 +22,7 @@ public class CellListUtilisation{
 		list1.showContents();
 		System.out.println("Is the serial number 12342678 in the list? " + list1.contains(12342678));
 		System.out.println("The phone with the serial 23456789 is here: "+ list1.find(23456789));
-		list2 = list1.clone();
+		list2 = new CellList(list1);
 		System.out.println();
 		list2.showContents();
 	} 
