@@ -161,8 +161,8 @@ public class CellList{
 		return count;
 	}
 
-	//LAURA's
-		//InsertAtIndex method: takes a given position and adds an object at that point using iterators//
+	//Laura's contribution
+	//InsertAtIndex() takes a given position and adds an object at that point using iterators//
 	public void insertAtIndex(CellPhone cellPhone, int index){
 		try{
 			if (index < 0 || index > (this.size()-1)){
@@ -187,6 +187,9 @@ public class CellList{
 			System.exit(0);	
 		}
 	}
+
+	//Laura's contribution
+	//deleteFromIndex() removes a node from the list at the specified index
 	public void deleteFromIndex(int index){
 		try{	
 			if (index < 0 || index > (this.size()-1)){
@@ -260,4 +263,7 @@ public class CellList{
 	public CellList clone(){
 		return new CellList(this);
 	}
+
+	//TO DO: equals() method. See the book on how to write an equals
+	//method of a linked list
 }
