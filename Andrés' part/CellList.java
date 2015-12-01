@@ -204,5 +204,8 @@ public class CellList{
 		}
 	}
 
-	//TO DO: clone() method
+	//clone() method
+	public CellList clone(){
+		return new CellList(this);
+	}
 }
