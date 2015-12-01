@@ -161,6 +161,58 @@ public class CellList{
 		return count;
 	}
 
+	//LAURA's
+		//InsertAtIndex method: takes a given position and adds an object at that point using iterators//
+	public void insertAtIndex(CellPhone cellPhone, int index){
+		try{
+			if (index < 0 || index > (this.size()-1)){
+				throw new NullPointerException();
+			}
+			else if (index == 0)
+				this.addToStart(cellPhone);
+			else{
+				CellListIterator iterator = new CellListIterator();
+				int count = 0;
+				while(count < index){
+					iterator.next();
+					count++;
+				}
+				CellNode temp = new CellNode(cellPhone, iterator.position);
+				iterator.previous.link = temp;			
+			}
+			size++;
+		}
+		catch (Exception e){
+			System.out.println("Invalid Index! Terminating Program.");
+			System.exit(0);	
+		}
+	}
+	public void deleteFromIndex(int index){
+		try{	
+			if (index < 0 || index > (this.size()-1)){
+				throw new NullPointerException();
+			}
+			else if(index == 0)
+				this.deleteFromStart();
+			else{
+				CellListIterator iterator = new CellListIterator();
+				int count = 0;
+				while(count < index){
+					iterator.next();
+					count++;
+				}
+				iterator.previous.link = iterator.position.link;
+				iterator.position = iterator.position.link;
+			}	
+			size--;	
+		}
+		catch (Exception e){
+			System.out.println("Invalid Index! Terminating Program.");
+			System.exit(0);	
+		}
+		
+	}
+
 	//deleteFromStart() deletes the head node and returns true if the list
 	//contains at least one node. Returns false if the list is empty.
 	public boolean deleteFromStart(){
