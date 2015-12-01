@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class CellPhone implements Cloneable{
 	private long serialNum;
 	private String brand;
@@ -29,8 +31,14 @@ public class CellPhone implements Cloneable{
 	}
 
 	//clone method
-	public CellPhone clone(long serialNum){
-		CellPhone copy = new CellPhone(serialNum, this.getBrand(), this.getYear(), this.getPrice());
+	public CellPhone clone(){
+		
+		long newSerial;
+
+		Scanner kb = new Scanner(System.in);
+		System.out.println("Please enter the serial number of the new phone: ");
+		newSerial = kb.nextLong();
+		CellPhone copy = new CellPhone(newSerial, this.getBrand(), this.getYear(), this.getPrice());
 		return copy;
 
 	}
