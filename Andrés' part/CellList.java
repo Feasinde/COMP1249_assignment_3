@@ -1,5 +1,4 @@
 import java.util.NoSuchElementException;
-
 public class CellList{
 
 	//////////////////////////
@@ -216,6 +215,32 @@ public class CellList{
 
 	}
 
+	//Laura's Contribution
+	//ReplaceatIndex takes a node and replaces it with another node without changing the size of the node//
+	public void ReplaceAtIndex(CellPhone cellPhone, int index){
+		try{
+			if (index < 0 || index > (this.size()-1))
+				throw new NullPointerException();
+							
+			else if (index == 0)			
+				head =  new CellNode(cellPhone, head);
+			else{
+				CellListIterator iterator = new CellListIterator();
+				int count = 0;
+				while(count < index){
+					iterator.next();
+					count++;
+				}
+				iterator.position.phone = cellPhone;
+				iterator.previous.link = iterator.position;
+			}
+		}
+		catch (Exception e){
+			System.out.println("Invalid Index! Terminating Program.");
+			System.exit(0);	
+		}		
+	}
+	
 	//deleteFromStart() deletes the head node and returns true if the list
 	//contains at least one node. Returns false if the list is empty.
 	public boolean deleteFromStart(){
@@ -268,35 +293,26 @@ public class CellList{
 	//method of a linked list
 
 	public boolean equals(Object otherObject){
-		if
-		(otherObject == null)
-			return
-					false;
-		else
-			if
-			(getClass( ) != otherObject.getClass( ))
-				return
-						false;
-			else
-			{
-				CellList otherList = (CellList)otherObject;
-				if
-				(this.size() != otherList.size())
-					return
-							false;
+		if	(otherObject == null)
+				return	false;
+		else if	(getClass( ) != otherObject.getClass( ))
+				return	false;
+		else{
+			CellList otherList = (CellList)otherObject;
+				if (this.size() != otherList.size())
+					return	false;
+				
 				CellNode position = head;
 				CellNode otherPosition = otherList.head;
-				while
-					(position != null){
-					if
-					(!(position.phone.equals(otherPosition.phone)))
-						return
-								false;
+				
+				while (position != null){
+					if (!(position.phone.equals(otherPosition.phone)))
+						return	false;
 					position = position.link;
 					otherPosition = otherPosition.link;
 				}
-				return
-						true; 
+				return	true; 
 			}
 	}
 }
+
