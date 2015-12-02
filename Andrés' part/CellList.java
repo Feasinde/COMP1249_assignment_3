@@ -267,14 +267,36 @@ public class CellList{
 	//equals() method. See the book on how to write an equals
 	//method of a linked list
 
-	public boolean equals(CellList list){
-		if (list == null)
-			return false;
-		if (list == this)
-			return true;
-		if (list.getClass() != getClass())
-			return false;
+	public boolean equals(Object otherObject){
+		if
+		(otherObject == null)
+			return
+					false;
 		else
-			return false;
+			if
+			(getClass( ) != otherObject.getClass( ))
+				return
+						false;
+			else
+			{
+				CellList otherList = (CellList)otherObject;
+				if
+				(this.size() != otherList.size())
+					return
+							false;
+				CellNode position = head;
+				CellNode otherPosition = otherList.head;
+				while
+					(position != null){
+					if
+					(!(position.phone.equals(otherPosition.phone)))
+						return
+								false;
+					position = position.link;
+					otherPosition = otherPosition.link;
+				}
+				return
+						true; 
+			}
 	}
 }
