@@ -6,6 +6,7 @@ public class CellPhone implements Cloneable{
 	private int year;
 	private double price;
 
+
 	//default constructor
 	public CellPhone(){
 		this.serialNum = 0;
@@ -32,14 +33,16 @@ public class CellPhone implements Cloneable{
 
 	//clone method
 	public CellPhone clone(){
-		
+
 		long newSerial;
 
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Please enter the serial number of the new phone: ");
 		newSerial = kb.nextLong();
+		kb.close();
 		CellPhone copy = new CellPhone(newSerial, this.getBrand(), this.getYear(), this.getPrice());
 		return copy;
+
 
 	}
 
@@ -51,8 +54,8 @@ public class CellPhone implements Cloneable{
 	//equals method
 	public boolean equals(CellPhone phone){
 		if (this.brand == phone.brand &&
-			this.year == phone.year &&
-			this.price == phone.price){
+				this.year == phone.year &&
+				this.price == phone.price){
 			return true;
 		}
 		return false;
@@ -90,4 +93,5 @@ public class CellPhone implements Cloneable{
 	public void setPrice(double price){
 		this.price = price;
 	}
+
 }

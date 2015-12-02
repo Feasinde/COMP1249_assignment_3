@@ -1,7 +1,7 @@
 import java.util.NoSuchElementException;
 
 public class CellList{
-	
+
 	//////////////////////////
 	//BEGIN INNER NODE CLASS//
 	//////////////////////////
@@ -213,7 +213,7 @@ public class CellList{
 			System.out.println("Invalid Index! Terminating Program.");
 			System.exit(0);	
 		}
-		
+
 	}
 
 	//deleteFromStart() deletes the head node and returns true if the list
@@ -264,6 +264,17 @@ public class CellList{
 		return new CellList(this);
 	}
 
-	//TO DO: equals() method. See the book on how to write an equals
+	//equals() method. See the book on how to write an equals
 	//method of a linked list
+
+	public boolean equals(CellList list){
+		if (list == null)
+			return false;
+		if (list == this)
+			return true;
+		if (list.getClass() != getClass())
+			return false;
+		else
+			return false;
+	}
 }
