@@ -1,3 +1,4 @@
+
 //-----------------------------------------------------------------------
 //Assignment 3
 //Part 1
@@ -106,7 +107,7 @@ public class CellListUtilisation{
 		list2.showContents();
 
 		System.out.println("\nReplacing the phone at position 1. These are now the contents of list2:\n");
-		list2.replaceAtIndex(phone6, 1);
+		list2.ReplaceAtIndex(phone6, 1);
 		list2.showContents();		
 
 		System.out.println("\n---------------------------------------------------------------------------\n");
@@ -130,11 +131,11 @@ public class CellListUtilisation{
 		}
 		else System.out.println("The lists are not the same.");
 
+		list3.ReplaceAtIndex(phone1, -9);  //should end program due to incorrect index SPECIAL CASE
+		
+		
 		keyboard.close();
 	} 
 }
-
-
-
 
 
