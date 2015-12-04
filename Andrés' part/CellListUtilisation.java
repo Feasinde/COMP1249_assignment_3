@@ -31,13 +31,13 @@ public class CellListUtilisation{
 		
 		//declare and initialise the name of the file to be read
 		String fileName = null;		
-		//System.out.println("Please enter the name of the cellphone file: ");		
-		//fileName = keyboard.next();
+		System.out.println("Please enter the name of the cellphone file: ");		
+		fileName = keyboard.next();
 		
 		//takes different attributes from TXT file and creates cellPhone objects with them. Then takes 
 		//objects and places them in our linked list ensuring no duplicate serial numbers are added
 		try{												
-			 Scanner inputStream = new Scanner(new FileReader("Cell_Info.txt"));
+			 Scanner inputStream = new Scanner(new FileReader(fileName));
 					inputStream.useLocale(Locale.US);	
 					while(inputStream.hasNextLong()){
 						long serialNum = inputStream.nextLong();
@@ -109,7 +109,7 @@ public class CellListUtilisation{
 		list2.showContents();
 
 		System.out.println("\nReplacing the phone at position 1. These are now the contents of list2:\n");
-		list2.ReplaceAtIndex(phone6, 1);
+		list2.replaceAtIndex(phone6, 1);
 		list2.showContents();		
 
 		System.out.println("\n---------------------------------------------------------------------------\n");
@@ -133,7 +133,8 @@ public class CellListUtilisation{
 		}
 		else System.out.println("The lists are not the same.");
 
-		list3.ReplaceAtIndex(phone1, -9);  //should end program due to incorrect index SPECIAL CASE
+		System.out.println("Finally, we're going to use an invalid index while calling the replace method.");
+		list3.replaceAtIndex(phone1, -9);  //should end program due to incorrect index SPECIAL CASE
 		
 		
 		keyboard.close();
