@@ -1,3 +1,19 @@
+//-----------------------------------------------------------------------
+//Assignment 3
+//Part 1
+//Written by: 
+//Sviki Gabbay - 27490968
+//Andrés Lou 24712374
+//Victoria Avgoustis 27529198
+//Laura Elena González 27217323	
+//
+//COMP 249 - Section D
+// Driver to for our multiple methods found in the CellList. 
+// Here we begin by opening a .txt file with information concerning cell phones and initializing objects of type CellPhone.
+// We then initialize the linked list, CellList, with these objects. After displaying the list, we test the various
+// methods such as, addToStart(), deleteFromStart(), equals(), clone(), etc.
+//-----------------------------------------------------------------------
+
 import java.io.*;
 import java.util.Scanner;
 import java.util.Locale;
@@ -58,7 +74,7 @@ public class CellListUtilisation{
 
 		System.out.println("Beginning clone method test");
 
-		CellList list2 = new CellList(list1); //Clone method
+		CellList list2 = new CellList(list1); 
 		list2.showContents();
 
 		System.out.println("adding a phone to the beginning of list2");

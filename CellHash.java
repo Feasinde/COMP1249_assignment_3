@@ -33,7 +33,7 @@ public class CellHash {
 					hashArr[location]= list;
 				}
 		//Ensures the serial number isn't a duplicate within the array's location, if it isn't will then place at 1st Node//		
-				if(!(hashArr[location].contains(serialNum))) 
+				if (!(hashArr[location].contains(serialNum)))
 					hashArr[location].addToStart(phone);						
 			}
 			
@@ -51,25 +51,22 @@ public class CellHash {
 		System.out.println("Here are some contents of the Hash Table: ");
 		System.out.println("========================================== \n");
 		
-		for(i=0; i<size; i++){
+		for (i=0; i<size; i++){
 			System.out.println("List at index "+i+" has the following information: ");
-			if(!(hashArr[i]==null))
+			if (!(hashArr[i]==null))
 				hashArr[i].showContents();
 			else 
 				System.out.println("List is empty: Nothing to display.");
+		
 			System.out.println("\n");
 		}
 		System.out.println();
 	}
 	
-	//DIDNT INCL. BIGO() YET, don't want it to go through all array indices since with the (serialNum mod 12) calculation
-	//it would only be in one array index. I dont get why it's not giving me an aswer.......
-	public boolean findCell(long serialNum){			
-		int location = computeHashValue(serialNum); 
-			if (hashArr[location].contains(serialNum))
-				return true;
-			else
-				return false;
-			}
+	
+	public void  findCell(long serialNum){			
+		int location = computeHashValue(serialNum); 		
+		System.out.println(hashArr[location].contains(serialNum));
+	}
 	
 }
