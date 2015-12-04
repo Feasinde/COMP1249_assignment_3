@@ -1,3 +1,17 @@
+//-----------------------------------------------------------------------
+//Assignment 3
+//Part 1
+//Written by: 
+//Sviki Gabbay - 27490968 (QUESTIONABLE)
+//Andrés Lou 24712374
+//Victoria Avgoustis 27529198
+//Laura Elena González 27217323	
+//
+//COMP 249 - Section D
+// This class has the various methods and constructors that will initialize the linked
+// lists, modify them (adding nodes/removing), search for serial and numbers and others.
+// Above each method the will be a brief description on what the method does and how.
+//-----------------------------------------------------------------------
 import java.util.NoSuchElementException;
 public class CellList{
 
@@ -28,7 +42,7 @@ public class CellList{
 		public CellNode clone(){
 			return new CellNode(this);
 		}
-
+		//Accessors and Mutators//
 		public void setCellPhone(CellPhone cellPhone){
 			phone = cellPhone;
 		}
@@ -98,6 +112,7 @@ public class CellList{
 	//default constructor
 	public CellList(){
 		head = null;
+		size = 0;
 	}
 
 	//copy constructor of CellList. This is an adaptation of the
@@ -217,7 +232,7 @@ public class CellList{
 
 	//Laura's Contribution
 	//ReplaceatIndex takes a node and replaces it with another node without changing the size of the node//
-	public void replaceAtIndex(CellPhone cellPhone, int index){
+	public void ReplaceAtIndex(CellPhone cellPhone, int index){
 		try{
 			if (index < 0 || index > (this.size()-1))
 				throw new NullPointerException();
@@ -259,12 +274,13 @@ public class CellList{
 		CellNode position = head;
 		long serialAtPostion;
 		while (position != null){
+			
 			serialAtPostion = position.phone.getSerialNum();
-			if (serialAtPostion == serial){
+			if (serialAtPostion == serial)
 				return position;
-			}
+			
 			position = position.link;
-		}
+		}	
 		return null;
 	}
 
@@ -279,6 +295,9 @@ public class CellList{
 	public void showContents(){
 		CellNode position = head;
 		int node_per_line = 0;
+		
+		System.out.println("The current size of the list is "+this.size()+". Here are the contents of the list.");
+		System.out.println("====================================================================== \n");
 		while (position != null){
 			if (node_per_line !=3){
 				node_per_line++;
