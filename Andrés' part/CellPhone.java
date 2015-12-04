@@ -1,3 +1,17 @@
+//-----------------------------------------------------------------------
+//Assignment 3
+//Part 1
+//Written by: 
+//Sviki Gabbay - 27490968
+//Andrés Lou 24712374
+//Victoria Avgoustis 27529198
+//Laura Elena González 27217323	
+//
+//COMP 249 - Section D
+// CellPhone class with constructors, clone method, accessors, mutators
+// and equals method.
+//-----------------------------------------------------------------------
+
 import java.util.Scanner;
 
 public class CellPhone implements Cloneable{
@@ -37,7 +51,7 @@ public class CellPhone implements Cloneable{
 		long newSerial;
 
 		Scanner kb = new Scanner(System.in);
-		System.out.print("Please enter a serial number: ");
+		System.out.println("Please enter the serial number of the new phone: ");
 		newSerial = kb.nextLong();
 		CellPhone copy = new CellPhone(this, newSerial);
 		// kb.close();
