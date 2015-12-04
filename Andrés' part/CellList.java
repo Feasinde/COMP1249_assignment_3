@@ -108,6 +108,7 @@ public class CellList{
 
 	private CellNode head;
 	private int size;
+	private int counter;
 
 	//default constructor
 	public CellList(){
@@ -115,6 +116,13 @@ public class CellList{
 		size = 0;
 	}
 
+	public void setCounter(int increment){
+		this.counter = increment;
+	}
+	
+	public int getCounter(){
+		return counter;
+	}
 	//copy constructor of CellList. This is an adaptation of the
 	//code written by Prof Aiman Hanna (C) 1993 - 2014
 	//http://aimanhanna.com/concordia/comp249/LinkedList5.java
@@ -271,16 +279,20 @@ public class CellList{
 	//of the node that matches it. Returns null if the serial is not
 	//found
 	public CellNode find(long serial){
+		int count = 0;
 		CellNode position = head;
 		long serialAtPostion;
 		while (position != null){
-			
+			count++;
+			setCounter(count);
 			serialAtPostion = position.phone.getSerialNum();
-			if (serialAtPostion == serial)
+			if (serialAtPostion == serial){
+				getCounter();
 				return position;
-			
+			}
 			position = position.link;
 		}	
+		getCounter();
 		return null;
 	}
 

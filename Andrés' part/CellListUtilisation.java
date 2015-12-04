@@ -1,4 +1,3 @@
-
 //-----------------------------------------------------------------------
 //Assignment 3
 //Part 1
@@ -18,6 +17,7 @@
 import java.io.*;
 import java.util.Scanner;
 import java.util.Locale;
+
 
 public class CellListUtilisation{
 	
@@ -62,10 +62,12 @@ public class CellListUtilisation{
 			long serialNum = keyboard.nextLong();
 			System.out.println();
 			if (list1.contains(serialNum)){
-				System.out.println("The phone with the this serial number is at location "+list1.find(serialNum));
+				System.out.println("The phone with this serial number is at location "+list1.find(serialNum));
+				System.out.println("After "+ list1.getCounter()+" search/es");
 			}
 			else if (!list1.contains(serialNum)){
 				System.out.println("The phone with the serial "+serialNum+" is not on the list.");
+				System.out.println("After "+ list1.getCounter()+" search/es");
 			}
 		}
 

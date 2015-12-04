@@ -92,12 +92,19 @@ public class CellHash {
 	}
 	// findCell() method takes in a serial number and verifies whether it is found in a linked list
 	// found in the HashArray. As opposed to going through every single array index, it will only
-	// go through the index provided by the computeHashValue() method for a quicker and more effiecient
+	// go through the index provided by the computeHashValue() method for a quicker and more efficient
 	// search as shown via the counter. 
 	
 	public void  findCell(long serialNum){			
-		int location = computeHashValue(serialNum); 		
-		System.out.println(hashArr[location].contains(serialNum));
+		int location = computeHashValue(serialNum); 
+		if (hashArr[location].contains(serialNum)){
+			System.out.println("The phone with serial number, "+serialNum+" exists.");
+			System.out.println("Found after "+hashArr[location].getCounter()+" search/es");
+		}
+		else{
+			System.out.println("The phone with serial number, "+serialNum+" doesn't exist.");
+			System.out.println("Found after "+hashArr[location].getCounter()+" search/es");
+		}
 	}
 	
 }
