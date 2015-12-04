@@ -2,7 +2,7 @@
 //Assignment 3
 //Part 1
 //Written by: 
-//Sviki Gabbay - 27490968 (QUESTIONABLE)
+//Sviki Gabbay - 27490968 
 //Andrés Lou 24712374
 //Victoria Avgoustis 27529198
 //Laura Elena González 27217323	
@@ -51,10 +51,6 @@ public class CellList{
 			this.link = link;
 		}
 
-		//Accessor methods that return objects are usually the source of
-		//privacy leaks. In this case, the get methods for the phone and
-		//link attributes could be set to return a copy of the phone and the
-		//node they reference instead of merely the pointer to their objects
 		public CellPhone getCellPhone(){
 			return phone;
 		}
@@ -110,8 +106,6 @@ public class CellList{
 	//END ITERATOR CLASS//
 	//////////////////////
 
-	//As indicated above, accessor methods that return objects may
-	//produce privacy leaks. 
 	private CellNode head;
 	private int size;
 	private int counter;
@@ -121,8 +115,7 @@ public class CellList{
 		head = null;
 		size = 0;
 	}
-	//the instance variable counter will be used to return the
-	//number of iterations performed by the find() method
+
 	public void setCounter(int increment){
 		this.counter = increment;
 	}
@@ -130,7 +123,6 @@ public class CellList{
 	public int getCounter(){
 		return counter;
 	}
-
 	//copy constructor of CellList. This is an adaptation of the
 	//code written by Prof Aiman Hanna (C) 1993 - 2014
 	//http://aimanhanna.com/concordia/comp249/LinkedList5.java
@@ -248,7 +240,7 @@ public class CellList{
 
 	//Laura's Contribution
 	//ReplaceatIndex takes a node and replaces it with another node without changing the size of the node//
-	public void replaceAtIndex(CellPhone cellPhone, int index){
+	public void ReplaceAtIndex(CellPhone cellPhone, int index){
 		try{
 			if (index < 0 || index > (this.size()-1))
 				throw new NullPointerException();
