@@ -217,7 +217,7 @@ public class CellList{
 
 	//Laura's Contribution
 	//ReplaceatIndex takes a node and replaces it with another node without changing the size of the node//
-	public void ReplaceAtIndex(CellPhone cellPhone, int index){
+	public void replaceAtIndex(CellPhone cellPhone, int index){
 		try{
 			if (index < 0 || index > (this.size()-1))
 				throw new NullPointerException();

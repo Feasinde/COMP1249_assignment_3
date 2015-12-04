@@ -37,7 +37,7 @@ public class CellPhone implements Cloneable{
 		long newSerial;
 
 		Scanner kb = new Scanner(System.in);
-		System.out.println("Please enter the serial number of the new phone: ");
+		System.out.print("Please enter a serial number: ");
 		newSerial = kb.nextLong();
 		CellPhone copy = new CellPhone(this, newSerial);
 		// kb.close();
