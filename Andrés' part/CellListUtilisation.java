@@ -21,21 +21,21 @@ import java.util.Locale;
 public class CellListUtilisation{
 	
 	public static void main(String[] args){
-		//declare and initialise the name of the file to be read
-		String fileName = null;
 		
+		//create two empty lists
+		CellList list2 = new CellList();
+		CellList list1 = new CellList();
 		Scanner keyboard = new Scanner(System.in);
+		
+		//declare and initialise the name of the file to be read
+		String fileName = null;		
 		System.out.println("Please enter the name of the cellphone file: ");		
 		fileName = keyboard.next();
-		
-		CellList list1 = new CellList();
-		
-		Scanner inputStream =  null;
 		
 		//takes different attributes from TXT file and creates cellPhone objects with them. Then takes 
 		//objects and places them in our linked list ensuring no duplicate serial numbers are added
 		try{												
-			 inputStream = new Scanner(new FileReader(fileName));
+			 Scanner inputStream = new Scanner(new FileReader(fileName));
 					inputStream.useLocale(Locale.US);	
 					while(inputStream.hasNextLong()){
 						long serialNum = inputStream.nextLong();
@@ -49,10 +49,11 @@ public class CellListUtilisation{
 		catch(IOException e){
 				System.out.println("File not found!");
 				System.exit(0);
-			}
-		
-		list1.showContents();
+		}
+
 		System.out.println("\n");
+		System.out.println("These are the contents of the file we just read: ");
+		list1.showContents();
 		System.out.println("We're going to look up for some serial numbers");
 		for (int i = 0;i < 3;i++){
 			System.out.println("Please enter a serial number you wish to search: ");
@@ -66,15 +67,18 @@ public class CellListUtilisation{
 			}
 		}
 		System.out.println();
-		System.out.println("Creating two more phone objects");		
+		System.out.println("We're going to create some more phone objects and put them in another list.");
 		CellPhone phone1 = new CellPhone(12345678, "Nokia", 199.99, 1998);
 		CellPhone phone2 = new CellPhone(23456789, "Apple", 999.99, 2014);
+		CellPhone phone3 = new CellPhone(46975564, "Samsung", 399.99, 2006);
+		CellPhone phone4 = new CellPhone(71364974, "LG", 299.99, 2012);
+
+		System.out.println("We're going to ")
 		
 		System.out.println("list1 is has this many nodes: "+list1.size());
 
 		System.out.println("Beginning clone method test");
 
-		CellList list2 = new CellList(list1); 
 		list2.showContents();
 
 		System.out.println("adding a phone to the beginning of list2");
