@@ -16,7 +16,7 @@ public class CellPhone implements Cloneable{
 	}
 
 	//parametrised constructor
-	public CellPhone(long serialNum, String brand, int year, double price){
+	public CellPhone(long serialNum, String brand, double price, int year){
 		this.serialNum = serialNum;
 		this.brand = brand;
 		this.year = year;
@@ -39,8 +39,8 @@ public class CellPhone implements Cloneable{
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Please enter the serial number of the new phone: ");
 		newSerial = kb.nextLong();
-		kb.close();
-		CellPhone copy = new CellPhone(newSerial, this.getBrand(), this.getYear(), this.getPrice());
+		CellPhone copy = new CellPhone(this, newSerial);
+		// kb.close();
 		return copy;
 
 
@@ -48,7 +48,7 @@ public class CellPhone implements Cloneable{
 
 	//toString method
 	public String toString(){
-		return "Serial number: "+this.serialNum+", Brand: "+this.brand+", Year: "+this.year+", Price: $"+this.price;
+		return this.serialNum+": "+this.brand+" "+this.year+" $"+this.price;
 	}
 
 	//equals method

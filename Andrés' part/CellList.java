@@ -278,10 +278,20 @@ public class CellList{
 	//showContents() outputs the contents of the list
 	public void showContents(){
 		CellNode position = head;
+		int node_per_line = 0;
 		while (position != null){
-			System.out.print("["+position.phone+"] ---> ");
-			position = position.link;
+			if (node_per_line !=3){
+				node_per_line++;
+				System.out.print("["+position.phone+"] ---> ");
+				position = position.link;
+			}
+			else if (node_per_line == 3){
+				node_per_line = 1;
+				System.out.print("\n["+position.phone+"] ---> ");
+				position = position.link;
+			}
 		}
+		System.out.print("X\n");
 	}
 
 	//clone() method

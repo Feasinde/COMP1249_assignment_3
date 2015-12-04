@@ -5,11 +5,7 @@ import java.util.Locale;
 public class CellListUtilisation{
 	
 	public static void main(String[] args){
-		///////////////////////////////////////////////////////////////
-		//This is a temporal version of the driver program wherein I //
-		//test the CellList class									 //
-		///////////////////////////////////////////////////////////////
-
+		//declare and initialise the name of the file to be read
 		String fileName = null;
 		
 		Scanner keyboard = new Scanner(System.in);
@@ -40,22 +36,36 @@ public class CellListUtilisation{
 			}
 		
 		list1.showContents();
+		System.out.println("\n");
+		System.out.println("We're going to look up for some serial numbers");
+		for (int i = 0;i < 3;i++){
+			System.out.println("Please enter a serial number you wish to search: ");
+			long serialNum = keyboard.nextLong();
+			System.out.println();
+			if (list1.contains(serialNum)){
+				System.out.println("The phone with the this serial number is at location "+list1.find(serialNum));
+			}
+			else if (!list1.contains(serialNum)){
+				System.out.println("The phone with the serial "+serialNum+" is not on the list.");
+			}
+		}
 		System.out.println();
-		
-		System.out.println("Please enter a serial number you wish to search: ");
-		long serialNum = keyboard.nextLong();
-				
-		System.out.println();
-		System.out.println("Is the serial number "+serialNum+" in the list? " + list1.contains(serialNum));
-		System.out.println("The phone with the serial "+serialNum+" is here: "+ list1.find(serialNum));
-		System.out.println();
-				
+		System.out.println("Creating two more phone objects");		
 		CellPhone phone1 = new CellPhone(12345678, "Nokia", 199.99, 1998);
 		CellPhone phone2 = new CellPhone(23456789, "Apple", 999.99, 2014);
 		
+		System.out.println("list1 is has this many nodes: "+list1.size());
+
+		System.out.println("Beginning clone method test");
+
 		CellList list2 = new CellList(list1); //Clone method
-		list2.showContents();		
+		list2.showContents();
+
+		System.out.println("adding a phone to the beginning of list2");
 		list2.addToStart(phone1);		
+
+		System.out.println("deleting a phone from index 4");
+
 		list2.deleteFromIndex(4);
 		list2.deleteFromStart();
 		list2.equals(list1);
