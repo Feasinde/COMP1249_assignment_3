@@ -10,7 +10,7 @@
 //COMP 249 - Section D
 // This is our driver class for our CellHash class. Here we read a file and  
 // initialize cellPhone objects to be placed in a linked list that are then placed 
-// in a HashArray. 
+// in a HashArray.   
 //---------------------------------------------------------------------------------
 
 import java.util.Scanner;

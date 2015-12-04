@@ -69,7 +69,7 @@ public class CellHash {
 			System.exit(0);
 		}		
 	}
-	// DisplayHashContents() method goes throught the newly created array of linked list
+	// DisplayHashContents() method goes through the newly created array of linked list
 	// and with the help of the showContents method, prints out each cellList found in each
 	// array index (if any).
 	
